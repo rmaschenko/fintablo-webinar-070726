@@ -220,7 +220,12 @@ body{font-family:var(--font);background:#E9ECF3;color:var(--fg);-webkit-font-smo
 .wb-pain-card .pc-ic{flex:none;width:56px;height:56px;border-radius:15px;background:linear-gradient(150deg,#EEF2FF,#DDE6FF);display:flex;align-items:center;justify-content:center;}
 .wb-pain-card .pc-ic svg{width:27px;height:27px;stroke:var(--primary);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;display:block;}
 .wb-pain-card p{font-size:17.5px;color:var(--dark);line-height:1.34;font-weight:600;letter-spacing:-0.01em;margin:0;}
-.wb-pain-note{margin-top:40px;text-align:center;font-size:19px;color:var(--fg-muted);line-height:1.5;}
+.wb-pain-context{margin-top:32px;background:linear-gradient(135deg,#FFF8E1,#FFFDF0);border:1px solid #FFE9A8;border-radius:18px;padding:22px 26px;display:flex;gap:16px;align-items:center;max-width:780px;margin-left:auto;margin-right:auto;}
+.wb-pain-context .ic{flex:none;width:44px;height:44px;border-radius:12px;background:#FFE9A8;display:flex;align-items:center;justify-content:center;}
+.wb-pain-context .ic svg{width:22px;height:22px;stroke:#B8860B;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.wb-pain-context p{font-size:15.5px;color:#6B5A1E;line-height:1.45;margin:0;}
+.wb-pain-context b{color:#7A5C00;font-weight:700;}
+.wb-pain-note{margin-top:32px;text-align:center;font-size:19px;color:var(--fg-muted);line-height:1.5;}
 .wb-pain-note b{color:var(--dark);font-weight:700;}
 @media(max-width:768px){
   .wb-pain{padding:60px 18px;}
@@ -231,6 +236,8 @@ body{font-family:var(--font);background:#E9ECF3;color:var(--fg);-webkit-font-smo
   .wb-pain-card .pc-ic svg{width:24px;height:24px;}
   .wb-pain-card p{font-size:16px;}
   .wb-pain-note{font-size:16.5px;margin-top:30px;}
+  .wb-pain-context{flex-direction:column;text-align:center;padding:22px 20px;gap:12px;}
+  .wb-pain-context p{font-size:15px;}
 }
 </style>
 <section class="wb-pain">
@@ -254,6 +261,10 @@ body{font-family:var(--font);background:#E9ECF3;color:var(--fg);-webkit-font-smo
         <div class="pc-ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v3M11 14h.01"/></svg></div>
         <p>Не&nbsp;понимаю, на&nbsp;каком клиенте и&nbsp;проекте реально зарабатываю</p>
       </div>
+    </div>
+    <div class="wb-pain-context fb-reveal">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M21 7v6M21 7h-6"/></svg></div>
+      <p>При&nbsp;ключевой ставке <b>14,25%</b> деньги дорогие, а&nbsp;цена решения вслепую&nbsp;— выше, чем&nbsp;год назад. Финансовый учёт сейчас работает на&nbsp;результат, а&nbsp;не&nbsp;«для&nbsp;галочки».</p>
     </div>
     <p class="wb-pain-note fb-reveal">Если хотя бы&nbsp;один пункт вам откликнулся&nbsp;— <b>этот вебинар для&nbsp;вас.</b></p>
   </div>
@@ -442,6 +453,55 @@ body{font-family:var(--font);background:#E9ECF3;color:var(--fg);-webkit-font-smo
 
 
 <!-- ════════════════════════════════════════════════════════════
+     ZERO BLOCK 5b — FAQ (снятие возражений перед формой)
+     ════════════════════════════════════════════════════════════ -->
+
+<style>
+.wb-faq{background:var(--bg);padding:96px 20px;font-family:var(--font);}
+.wb-faq-in{max-width:780px;margin:0 auto;}
+.wb-faq .eyebrow{font-size:13px;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:.1em;text-align:center;margin-bottom:14px;}
+.wb-faq h2{font-size:42px;font-weight:700;color:var(--dark);line-height:1.06;letter-spacing:-0.035em;text-align:center;margin-bottom:48px;}
+.wb-faq-item{background:var(--surface);border:1px solid var(--border);border-radius:16px;margin-bottom:14px;overflow:hidden;transition:box-shadow .2s;}
+.wb-faq-item[open]{box-shadow:0 14px 32px -16px rgba(9,26,78,.16);}
+.wb-faq-item summary{list-style:none;cursor:pointer;padding:24px 28px;font-size:17.5px;font-weight:600;color:var(--dark);letter-spacing:-0.01em;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.wb-faq-item summary::-webkit-details-marker{display:none;}
+.wb-faq-item summary .pl{flex:none;width:26px;height:26px;border-radius:50%;background:var(--blue-light);display:flex;align-items:center;justify-content:center;transition:transform .25s;}
+.wb-faq-item summary .pl svg{width:14px;height:14px;stroke:var(--primary);fill:none;stroke-width:2.4;stroke-linecap:round;}
+.wb-faq-item[open] summary .pl{transform:rotate(45deg);}
+.wb-faq-item .ans{padding:0 28px 24px;font-size:16px;color:var(--fg-muted);line-height:1.55;}
+@media(max-width:768px){
+  .wb-faq{padding:60px 18px;}
+  .wb-faq h2{font-size:30px;letter-spacing:-0.025em;margin-bottom:34px;}
+  .wb-faq-item summary{padding:20px 22px;font-size:16px;}
+  .wb-faq-item .ans{padding:0 22px 20px;}
+}
+</style>
+<section class="wb-faq">
+  <div class="wb-faq-in">
+    <div class="eyebrow fb-reveal">Частые вопросы</div>
+    <h2 class="fb-reveal d1">Коротко о&nbsp;вебинаре</h2>
+    <details class="wb-faq-item fb-reveal d1" open>
+      <summary>Участие бесплатное?<span class="pl"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+      <div class="ans">Да, вебинар полностью бесплатный. Достаточно зарегистрироваться&nbsp;— доступ пришлём в&nbsp;чат-боте.</div>
+    </details>
+    <details class="wb-faq-item fb-reveal d1">
+      <summary>Будет ли запись, если не&nbsp;смогу прийти?<span class="pl"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+      <div class="ans">Да. Запись пришлём всем зарегистрированным участникам&nbsp;— посмотрите в&nbsp;удобное время.</div>
+    </details>
+    <details class="wb-faq-item fb-reveal d2">
+      <summary>Это разбор или продажа сервиса?<span class="pl"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+      <div class="ans">Это практический эфир: разбираем инструменты финансового учёта на&nbsp;реальном кейсе и&nbsp;проходим диагностику. Финтабло показываем как рабочий инструмент, но&nbsp;ценность эфира&nbsp;— в&nbsp;разборе вашего бизнеса.</div>
+    </details>
+    <details class="wb-faq-item fb-reveal d2">
+      <summary>Подойдёт, если у&nbsp;меня нет финансиста?<span class="pl"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+      <div class="ans">Да. Эфир полезен и&nbsp;собственнику, который сам ведёт финансы, и&nbsp;штатному финансисту. Лариса разбирает на&nbsp;языке бизнеса, без сложных терминов.</div>
+    </details>
+  </div>
+</section>
+
+
+
+<!-- ════════════════════════════════════════════════════════════
      ZERO BLOCK 6 — ФОРМА РЕГИСТРАЦИИ (экран 6) · #reg
      ════════════════════════════════════════════════════════════ -->
 
@@ -476,11 +536,12 @@ body{font-family:var(--font);background:#E9ECF3;color:var(--fg);-webkit-font-smo
 <section class="wb-reg" id="reg">
   <div class="wb-reg-in fb-reveal">
     <h2>Занять место на&nbsp;вебинаре</h2>
-    <p class="sub">Регистрация бесплатная. Доступ пришлём в&nbsp;чат-боте.</p>
+    <p class="sub">Регистрация бесплатная. Доступ пришлём в&nbsp;чат-боте.<br>Не&nbsp;сможете быть онлайн&nbsp;— пришлём запись всем участникам.</p>
     <div class="wb-reg-meta">
       <span><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>7 июля · 17:00 МСК</span>
       <span><svg viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7zM1 5h15v14H1z"/></svg>Онлайн</span>
       <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>60 минут</span>
+      <span><svg viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7zM1 5h15v14H1z"/></svg>Будет запись</span>
     </div>
     <form class="wb-reg-form" id="webinarForm" novalidate>
       <div class="wb-field">
